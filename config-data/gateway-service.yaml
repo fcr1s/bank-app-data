@@ -17,24 +17,23 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: bank_app_M1
-          uri: lb://bank_app_M1
+        - id: prestamo-service
+          uri: lb://prestamo-service
           predicates:
             - Path=/prestamo/**
-        - id: bank_app_M2
-          uri: lb://bank_app_M2
+        - id: registro-service
+          uri: lb://registro-service
           predicates:
-            - Path=/clientes/**
-        - id: bank_app_M3
-          uri: lb://bank_app_M3
+            - Path=/registro/**
+        - id: solicitud-service
+          uri: lb://solicitud-service
           predicates:
             - Path=/solicitud/**
-            - Path=/documentos/**
-        - id: bank_app_M4
-          uri: lb://bank_app_M4
+        - id: evaluacion-service
+          uri: lb://evaluacion-service
           predicates:
-            - Path=/ejecutivos/**
-        - id: bank_app_M5
-          uri: lb://bank_app_M5
+            - Path=/evaluacion/**
+        - id: seguimiento-service
+          uri: lb://seguimiento-service
           predicates:
             - Path=/seguimiento/**
