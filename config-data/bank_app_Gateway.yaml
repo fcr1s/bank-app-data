@@ -38,4 +38,15 @@ spring:
           uri: lb://bank_app_M5
           predicates:
             - Path=/seguimiento/**
-          
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS 
+            allowedHeaders:
+              - "*"
