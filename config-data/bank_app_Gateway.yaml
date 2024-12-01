@@ -1,0 +1,41 @@
+server:
+  port: 8080
+  
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
+
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: bank_app_M1
+          uri: lb://bank_app_M1
+          predicates:
+            - Path=/prestamo/**
+        - id: bank_app_M2
+          uri: lb://bank_app_M2
+          predicates:
+            - Path=/clientes/**
+        - id: bank_app_M3
+          uri: lb://bank_app_M3
+          predicates:
+            - Path=/solicitud/**
+            - Path=/documentos/**
+        - id: bank_app_M4
+          uri: lb://bank_app_M4
+          predicates:
+            - Path=/ejecutivos/**
+        - id: bank_app_M5
+          uri: lb://bank_app_M5
+          predicates:
+            - Path=/seguimiento/**
+          
