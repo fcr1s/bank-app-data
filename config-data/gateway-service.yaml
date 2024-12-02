@@ -37,3 +37,18 @@ spring:
           uri: lb://seguimiento-service
           predicates:
             - Path=/seguimiento/**
+
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 
+              - "http://localhost:3000" # Cambia al dominio de tu frontend
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders:
+              - "*"
+            allowCredentials: true
