@@ -42,7 +42,7 @@ spring:
         cors-configurations:
           '[/**]':
             allowedOrigins: 
-              - "http://localhost:5173" # Cambia al dominio de tu frontend
+              - "http://localhost:5173" 
             allowedMethods:
               - GET
               - POST
