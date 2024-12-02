@@ -29,7 +29,6 @@ spring:
           uri: lb://solicitud-service
           predicates:
             - Path=/solicitud/**
-            - Path=/documento/**
         - id: evaluacion-service
           uri: lb://evaluacion-service
           predicates:
