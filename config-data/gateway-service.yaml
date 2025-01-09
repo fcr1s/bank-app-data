@@ -1,21 +1,20 @@
 server:
   port: 8055
-
 eureka:
   client:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-      default-zone: http://eureka-service:8761/eureka 
-  instance:
-    hostname: localhost
-
+      defaultZone: http://eureka-service:8761/eureka
+  hostname: localhost
+  
 spring:
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
+          
       routes:
         - id: prestamo-service
           uri: lb://prestamo-service
@@ -37,18 +36,16 @@ spring:
           uri: lb://seguimiento-service
           predicates:
             - Path=/seguimiento/**
-
       globalcors:
         cors-configurations:
           '[/**]':
-            allowedOrigins: 
-              - "http://localhost:5173" 
+            allowedOrigins: "*"
             allowedMethods:
               - GET
               - POST
               - PUT
               - DELETE
-              - OPTIONS
+              - OPTIONS 
             allowedHeaders:
               - "*"
-            allowCredentials: true
+
